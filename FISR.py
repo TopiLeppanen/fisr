@@ -33,13 +33,13 @@ VARIANCE = 0.05
 #Aggregate the 3x3 neighborhood around the lowresolution coordinate with weights
 AGGREGATE = True
 #Plot the y0 indexes as a image
-PLOT_Y0_MAPPING = True
+PLOT_Y0_MAPPING = False
 
 # Includes the transformer that does the mapping for y0 patch to a scalar 0-127
-TRANSFORMER_FILE = "pca.sav"
+TRANSFORMER_FILE = "Transformers/pca.sav"
 # 1x128 vector of nabla f values. If only this filename is changed, the
 # same transformer can be used without retraining.
-C_FILE = "pca.npy"
+C_FILE = "Transformers/pca.npy"
 
 
 # This function can implement any of the below superresolution algorithms.
@@ -179,7 +179,7 @@ else:
 toc = time.time()
 print("Training elapsed: {}".format(toc-tic))
 
-imgname = "INSERT_EXAMPLE_IMAGE_TO_UPSCALE_HERE"
+imgname = "../CVPR13/kid_input.jpg"
 im = Image.open(imgname)
 im = np.array(im, dtype=np.float32)
 im /= 255
